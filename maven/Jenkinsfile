@@ -1,4 +1,4 @@
-pipeline {
+/*pipeline {
     agent any
     stages {
         stage('Build') {
@@ -20,6 +20,18 @@ pipeline {
                 withMaven(maven: 'maven-3.8.6'){
                     sh 'mvn deploy'
                     }
+            }
+        }
+    }
+}*/
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                git 'https://github.com/DevaprasadDR/cucumber.git'
+                bat './mvnw clean compile'
             }
         }
     }
